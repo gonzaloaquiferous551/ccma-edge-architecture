@@ -1,0 +1,93 @@
+name: Render TeX to PDF
+
+on:
+  push:
+    tags:
+      - "v*"
+    paths:
+      - "**/*.tex"
+      - ".github/workflows/render-tex-to-pdf.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: render-tex-to-pdf-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile TeX to PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          # Use a glob to avoid shell tokenization issues with spaces in filenames.
+          root_file: "*.tex"
+          latexmk_use_lualatex: true
+          args: -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Upload generated PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-pdf
+          path: "**/*.pdf"
+
+      - name: Prepare Pages artifact
+        shell: bash
+        run: |
+          mkdir -p pages
+          shopt -s nullglob
+          pdf_files=( *.pdf )
+          if [ ${#pdf_files[@]} -eq 0 ]; then
+            echo "No PDF output found."
+            exit 1
+          fi
+          cp "${pdf_files[0]}" pages/latest.pdf
+          cp "${pdf_files[0]}" "pages/${pdf_files[0]}"
+          cat > pages/index.html <<EOF
+          <!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>CCMA PDF</title>
+          </head>
+          <body>
+            <h1>CCMA PDF</h1>
+            <p><a href="latest.pdf">Download latest PDF</a></p>
+            <p><a href="${pdf_files[0]}">Download generated PDF with original filename</a></p>
+          </body>
+          </html>
+          EOF
+
+      - name: Upload Pages artifact
+        if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: pages
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: "*.pdf"
+
+  deploy-pages:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    needs: build-pdf
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

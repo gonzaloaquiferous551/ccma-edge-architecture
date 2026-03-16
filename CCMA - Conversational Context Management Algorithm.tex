@@ -1,0 +1,223 @@
+% !TeX program = lualatex
+\documentclass[11pt, a4paper]{article}
+
+% --- UNIVERSAL PREAMBLE BLOCK ---
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
+\usepackage{fontspec}
+
+\usepackage[english, bidi=basic, provide=*]{babel}
+
+\babelprovide[import, onchar=ids fonts]{english}
+
+% Set default/Latin font to Sans Serif in the main (rm) slot
+\babelfont{rm}{Noto Sans}
+
+% --- ADDITIONAL PACKAGES ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+% Document Metadata with Patent Pending Status
+\title{
+    \textbf{Synoptic Context Management: Graph-Augmented Bi-Temporal Memory and Semantic-Temporal Modulation in Edge LLMs} \\
+    \vspace{0.5cm}
+    \large \textbf{Patent Pending} \\
+    \small U.S. Provisional Application No. 64/006,354
+}
+
+\author{
+	Dane Robert Jones \\ 
+	\textit{Software Engineering Student, Western Governors University} \\ 
+	\textit{Technical SME, Essintial} \\
+	Attica, OH $\vert$ \href{mailto:danerjones@gmail.com}{danerjones@gmail.com} $\vert$ ORCID iD: 0009-0003-8014-7298
+}
+\date{Filed: March 15, 2026}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		The deployment of long-horizon conversational agents in resource-constrained edge environments is fundamentally bottlenecked by the quadratic scaling of transformer self-attention. Traditional first-in-first-out (FIFO) truncation results in catastrophic forgetting. This paper proposes the Conversational Context Management Algorithm (CCMA), a framework utilizing Directed Acyclic Graphs (DAGs) and Max-Pooled Semantic Signatures for lossless context compaction. We mathematically formulate a Semantic-Temporal Modulator that corrects Ebbinghaus memory decay for asynchronous interactions, alongside a Novelty Penalty to mitigate contextual poisoning. Furthermore, we propose methodologies for Graph-Augmented LLM pre-training, introduce our novel Macro-to-Micro Spatial Decomposition, and theorize a Return on Comprehension (RoC) correlation loop for Vision-Language Models (VLMs). Finally, we detail the framework's scalability via Tri-Tiered Chrono-Synchronous Storage, secure Agentic Edge-to-Cloud escalation handling volatile nodes like OpenClaw, Multi-Agent database agnosticism, Geo-Temporal Anomaly Detection in Autonomous Vehicles utilizing Foveated Semantic Scrutiny, and propose a specialized TPU/FPGA Hybrid hardware architecture to silicon-enforce deterministic execution.
+	\end{abstract}
+	
+	\vspace{0.5cm}
+	
+	\section{Introduction}
+	As artificial intelligence transitions from cloud infrastructure to edge computing (e.g., localized consumer-grade hardware or embedded IoT nodes), the operational constraints of transformer architectures become critical barriers. While frameworks like MemGPT \cite{packer2023memgpt} attempt to solve this by treating the Large Language Model (LLM) as an operating system managing its own paging code, such approaches introduce probabilistic and non-deterministic execution risks. The CCMA framework achieves stable, human-like cognitive persistence by adhering strictly to a Functional Core / Imperative Shell architecture. By utilizing immutable state vectors and deterministic mathematical routing, CCMA securely manages bi-temporal facts and decouples the cognitive memory structure from the LLM's inherently probabilistic text generation. This decoupling uniquely positions CCMA as a foundational memory layer for highly autonomous, disconnected edge endpoints.
+	
+	\section{Mathematical Framework \& Vulnerability Mitigation}
+	
+	\subsection{The Attention Complexity Barrier \& HNSW Indexing}
+	The necessity for CCMA derives from the mathematical limits of the self-attention mechanism \cite{vaswani2017}. For an input matrix $X \in \mathbb{R}^{n \times d}$, attention requires $\mathcal{O}(n^2 \cdot d)$ operations. CCMA actively forces the sequence length $n \leq \text{Threshold}$ by utilizing \textit{Semantic Cache Compaction}—a process that systematically evicts the oldest conversational nodes from the active KV cache into an archived DAG, leaving behind a lightweight Semantic Signature pointer. To prevent retrieval latency degradation as the DAG expands over continuous use, CCMA mandates Hierarchical Navigable Small World (HNSW) indexing \cite{malkov2018hnsw}. This ensures that historical correlation matching via Cosine Similarity remains bound to $\mathcal{O}(\log N)$ rather than degrading to an $\mathcal{O}(N)$ exhaustive k-Nearest Neighbors search.
+	
+	\subsection{Corrective Retrieval-Augmented Generation (CRAG) Routing}
+	In unstructured logs, the model must distinguish between natural topic continuations, relevant tangents, and hard topic shifts. CCMA utilizes a Corrective Retrieval-Augmented Generation (CRAG) Evaluator \cite{yan2024crag} to assign confidence scores $s_i$ to incoming prompts against historical active-window chunks.
+	\begin{itemize}
+		\item \textbf{Correct ($s_i > \tau_{\text{high}}$):} A natural topic continuation or linking point. Temporal decay applies standardly.
+		\item \textbf{Incorrect ($s_i < \tau_{\text{low}}$):} A random semantic walk (e.g., shifting abruptly from "server diagnostics" to "Roman history"). The system triggers a \textit{Hard Context Reset}, initiating immediate Semantic Cache Compaction of the previous topic to a single Summary Bindle and flushing the active memory array to protect the VRAM budget.
+		\item \textbf{Ambiguous:} Partial relevance. The system merges the active window with retrieved external knowledge.
+	\end{itemize}
+	
+	\subsection{Formulation of Semantic-Temporal Modulation}
+	The traditional Ebbinghaus forgetting curve \cite{ebbinghaus1885} models memory retention $R$ as $R(t) = e^{-t/S}$. This curve fails in asynchronous systems where a massive chronological delta ($\Delta t$) may pass between highly correlated conversational turns. Inspired by informal industry theories regarding temporal weighting in conversational models \cite{synth_temporal}, we mathematically formalize the Semantic-Temporal Modulator, which defines an Effective Time ($\Delta t_{\text{eff}}$) utilizing the cosine similarity ($S_{\text{sim}} \in [0,1]$) between the query and historical nodes:
+	
+	\begin{equation}
+		\Delta t_{\text{eff}} = \Delta t \cdot (1 - S_{\text{sim}})^\gamma
+	\end{equation}
+	
+	Where $\gamma$ is a tuning scalar. If $S_{\text{sim}} \to 1$ (exact topic resumption), $\Delta t_{\text{eff}} \to 0$, and retention is preserved regardless of the absolute chronological delay.
+	
+	\subsection{The ``Echo Chamber'' Loop and Novelty Penalty}
+	\textbf{Vulnerability:} The Semantic-Temporal Modulator introduces an exploit vector. If an automated script injects the exact same string repeatedly, $S_{\text{sim}} \approx 1$, arresting temporal decay and flooding the Key-Value (KV) cache with redundant tokens.
+	
+	\noindent\textbf{Proposed Mitigation:} CCMA introduces a Novelty Penalty via a newly defined metric, the Echo Coefficient ($E$). For a sliding window of the last $k$ interactions:
+	
+	\begin{equation}
+		E = \frac{1}{k} \sum_{i=1}^{k} S_{\text{sim}}^{(i)}
+	\end{equation}
+	
+	If $E > \tau_{\text{echo}}$ (e.g., $0.95$), the Imperative Shell overrides the Ebbinghaus curve and triggers a \textit{Deduplication Eviction}, forcefully compacting redundant nodes to protect VRAM.
+	
+	\subsection{Prevention of Centroid Collapse via Max-Pooling}
+	During context compaction, calculating the mathematical average (centroid) of diverse conversational vectors often results in a flattened, semantically ambiguous signature. CCMA generates Max-Pooled Semantic Signatures utilizing Max-Pooling across the dimension axis. For a set of semantic vectors $V = \{v_1, v_2, \dots, v_m\}$ where $v_i \in \mathbb{R}^d$, the max-pooled Semantic Signature $M \in \mathbb{R}^d$ is defined as:
+	
+	\begin{equation}
+		M_j = \max_{i=1}^{m} (v_{i,j}) \quad \text{for } j = 1 \dots d
+	\end{equation}
+	
+	This mathematically preserves the distinct semantic ``peaks'' of the conversation, ensuring accurate correlations during future graph traversals.
+	
+	\subsection{Mitigation of Semantic Signature Collision via Hybrid Indexing}
+	\textbf{Vulnerability:} As the DAG scales, highly common elements (e.g., generic background hardware, ubiquitous phrases) dominate max-pooled Semantic Signatures, resulting in dense HNSW clustering and false-positive correlations.
+	
+	\noindent\textbf{Proposed Mitigation:} CCMA applies Reciprocal Rank Fusion (RRF) \cite{cormack2009rrf}, combining dense vector embeddings with sparse, TF-IDF weighted semantic signatures. The combined retrieval score $S_{\text{RRF}}$ for a node $d$ is:
+	
+	\begin{equation}
+		S_{\text{RRF}}(d) = \frac{1}{k + \text{Rank}_{\text{dense}}(d)} + \frac{1}{k + \text{Rank}_{\text{sparse}}(d)}
+	\end{equation}
+	
+	This ensures that high-entropy, rare diagnostic data bridges Epiphany Correlations, mathematically bypassing generic environmental noise.
+	
+	\section{Theorized Elements and Empirical Validation}
+	
+	\subsection{Hypothesis 1: Graph-Augmented LLM Pre-Training}
+	\textbf{Proposition:} Expanding upon GraphRAG methodologies \cite{microsoft2024graphrag}, applying Graph Attention Network (GAT) weights directly to CCMA DAG elements during LLM fine-tuning allows smaller models (e.g., $\leq$ 1.5B parameters) to achieve near-optimal recall of historical states.\\
+	\textbf{Validation Methodology:} A Needle-In-A-Haystack (NIAH) retrieval test comparing a base model ($C_1$) against a CCMA-DAG LoRA fine-tuned model ($E_1$) across a 32K token history. A two-sample t-test ($p < 0.05$) will determine statistical significance in retrieval accuracy.
+	
+	\subsection{Hypothesis 2: Macro-to-Micro Spatial Decomposition in VLMs}
+	\textbf{Proposition:} Visual data processing is deductive. We propose a novel structural approach: \textit{Macro-to-Micro Spatial Decomposition}. While existing frameworks like SpatialVLM \cite{chen2024spatialvlm} endow models with spatial reasoning by lifting 2D images into 3D point clouds with metric scale, our framework utilizes the macro-embedding $E_{\text{macro}}$ as a compute gate. If cosine similarity exceeds a threshold $\tau_{\text{explore}}$, the algorithm triggers a divisive segmentation function $S(I) \to \{I_{\text{sub1}}, \dots, I_{\text{subk}}\}$, preserving spatial-causal ordering.\\
+	\textbf{Validation Methodology:} A paired t-test evaluating Total GPU Compute Cycles (TFLOPS) and Inference Latency (ms) between an edge VLM utilizing Exhaustive Micro-Segmentation ($C_2$) and Threshold-Gated Macro-to-Micro Decomposition ($E_2$).
+	
+	\subsection{Hypothesis 3: Return on Comprehension (RoC)}
+	\textbf{Proposition:} High-capacity models can perform deep analysis by recursively evaluating micro-segments. We define this recursive scrutiny as a \textbf{Return on Comprehension (RoC)} correlation:
+	
+	\begin{equation}
+		RoC = \sum_{i=1}^{n} \left( w_i \cdot \text{CosineSim}(E_{\text{micro\_}i}, E_{\text{historic\_}i}) \right)
+	\end{equation}
+	
+	By producing segmented correlation weights, large models map granular structural memory within the DAG.\\
+	\textbf{Validation Methodology:} An F1-score comparison measuring diagnostic accuracy on complex multi-fault hardware images between standard spatial decomposition ($C_3$) and recursive RoC evaluation ($E_3$).
+	
+	\subsection{Hypothesis 4: Bi-Temporal Visual Object Permanence}
+	\textbf{Proposition:} Sequential diagnostic images yield extreme Cosine Similarities ($S_{\text{sim}} > 0.99$) due to identical backgrounds. CCMA enforces \textit{Visual Object Permanence} via a Structural Similarity (SSIM) Delta Check \cite{wang2004ssim} prior to DAG ingestion. Localized pixel mutations trigger Bi-Temporal invalidation ($t_{\text{invalid}}$) of the old element, spawning a new node that maps temporal state changes onto a spatial coordinate.\\
+	\textbf{Validation Methodology:} A Chi-Square Test of Independence evaluating the capability of SSIM Delta Checks ($E_4$) to decouple state mutations from static backgrounds compared to naive macro Cosine Similarity ($C_4$).
+	
+	\subsection{Hypothesis 5: Agentic Edge-to-Cloud Escalation}
+	\textbf{Proposition:} CCMA acts as the foundational memory layer for agentic endpoints (e.g., OpenClaw nodes). Upon exceeding local VRAM, the edge node transmits semantically compressed DAG Bindles rather than raw token histories. The cloud model's resolution is ingested back into the local DAG. This ensures \textbf{Continuous Local Learning}, converting discrete API expenditures into persistent local capabilities, resulting in exponential decay of future cloud dependencies. However, OpenClaw is a highly volatile autonomous agent created in late 2025, known for risks such as credential leakage and unintended remote system compromise \cite{openclaw2025}. To mitigate these severe security and governance risks, the framework implements strict sandboxing, tenancy restrictions, and human-in-the-loop escalation controls. This prevents the memory graph from facilitating unauthorized data exfiltration or privilege escalation.\\
+	\textbf{Validation Methodology:} A longitudinal trend analysis measuring Total Cloud API Expenditure (\$USD) over a 30-day cycle. The test will evaluate if the CCMA threshold-gated agent ($E_5$) exhibits exponential cost decay via local DAG absorption compared to a baseline 100\% cloud-routed agent ($C_5$).
+	
+	\subsection{Hypothesis 6: Geo-Temporal Anomaly Detection in AVs}
+	\textbf{Proposition:} Autonomous Vehicles (AVs) must discern niche anomalies with sub-millisecond latency. By treating the AV as a CCMA edge node, the vehicle pre-loads geographic-temporal Bindles into an L1 cache. Applying static SSIM checks to moving vehicles introduces what we define as the \textbf{Velocity Perspective Gap}. Prior to the SSIM Delta check, the live sensor frame $I_{\text{live}}$ undergoes \textbf{Velocity-Normalized Spatial Warping (VNSW)} against the cached baseline $I_{\text{cache}}$ to normalize velocity scaling \cite{dosovitskiy2015flownet}.
+	
+	\begin{equation}
+		I_{\text{warped}} = \text{Warp}(I_{\text{live}}, \text{Flow}(I_{\text{live}}, I_{\text{cache}}))
+	\end{equation}
+	
+	Once warped and routed by modality, the SSIM calculation isolates anomalies, bypassing exhaustive VLM classification of static environments.\\
+	\textbf{Validation Methodology:} A paired t-test over a closed track evaluating False Positive Braking Events and Inference Latency (ms) between standard feed-forward VLM inference ($C_6$) and CCMA Geo-Temporally Gated inference ($E_6$).
+	
+	\subsection{Hypothesis 7: Foveated Semantic Scrutiny}
+	\textbf{Proposition:} To process high frame rates without violating the Nyquist-Shannon sampling theorem, CCMA implements \textit{Foveated Semantic Scrutiny} via a \textbf{Laplacian Pyramid} \cite{burt1983laplacian}. The base layer acts as a low-resolution gating frame, while higher levels preserve high-frequency edge maps. If an anomaly triggers the SSIM gate, the system extracts a high-resolution foveal crop ($I_{\text{foveal}}$) for VLM inference \cite{mnih2014recurrent}.\\
+	\textbf{Validation Methodology:} A paired t-test comparing GPU Thermal Design Power (TDP) utilization and Inference Latency between standard 1080p inference ($C_7$) and Laplacian Foveated Semantic Scrutiny ($E_7$).\\
+	\textit{Latency Projection:} Downsampling mathematical gating reduces latency from $\approx 3.0$ ms to $\approx 0.18$ ms. Localized VLM inference on $I_{\text{foveal}}$ requires $\approx 18.0$ ms. The total projected latency is $\approx 18.18$ ms, remaining well within a standard 33.3 ms operational envelope.
+	
+	\section{Scalability \& Chrono-Synchronous Caching}
+	
+	\subsection{Storage Footprint Projections}
+	Calculating the byte-level storage of a single DAG node yields:
+	\begin{itemize}
+		\item \textbf{Dense Vector (Semantic Signature):} 768 dimensions $\times$ 4 bytes (Float32) $\approx$ 3 KB.
+		\item \textbf{Sparse Vector \& Metadata:} $\approx$ 2 KB.
+	\end{itemize}
+	At an ingestion rate of 1,000 conversational/visual turns per day, the system generates $\approx$ 1.8 GB per year. This projection confirms that an embedded edge node can maintain lossless, decade-long contextual memory within standard solid-state hardware limits.
+	
+	\subsection{Tri-Tiered Storage Architecture}
+	\textbf{Tier 1: Chrono-Synchronous Caching (Redis).} Upon detecting an influx of highly similar Semantic Signatures within a constrained window, CCMA promotes the resulting Bindle to a Redis L1 Cache with a synchronized Time-To-Live (TTL), resolving trending queries in $\mathcal{O}(1)$ time.\\
+	\textbf{Tier 2: Immutable DAG (PostgreSQL).} The bi-temporal state is permanently housed in an ACID-compliant PostgreSQL instance utilizing \texttt{pgvector}. As Chrono-Synchronous trends expire, they fall back to Tier 2 for $\mathcal{O}(\log N)$ HNSW retrieval.
+	
+	\section{Multi-Agent Database Agnosticism}
+	Because CCMA abstracts memory into coordinate spaces, the storage infrastructure is inherently \textbf{Agent-Agnostic}. Diverse subsystems can point to a monolithic database without cross-contamination. An agent's contextual embedding acts as an absolute semantic filter, mathematically ignoring unrelated data domains due to cosine distance. Furthermore, the append-only nature of the immutable DAG bypasses row-level write locking and transaction collisions, enabling conflict-free horizontal scaling across global edge nodes.
+	
+	\section{Silicon-Level Architecture: TPU/FPGA Hybrid}
+	To achieve deterministic execution and optimize power efficiency for edge deployment, the software architecture must be mapped to hardware logic via a \textbf{TPU/FPGA Hybrid System-on-Chip (SoC)}.
+	
+	\subsection{The FPGA: Silicon Functional Core}
+	Field-Programmable Gate Arrays (FPGAs) excel at deterministic, low-latency mathematics \cite{nurvitadhi2017fpga}. CCMA delegates immutable gating functions (VNSW, Laplacian Pyramids, SSIM, RRF) directly to the FPGA fabric, ensuring execution in mathematically bounded clock cycles free from OS-level scheduling jitter.
+	
+	\subsection{The TPU: Probabilistic Imperative Shell}
+	Tensor Processing Units (TPUs) handle the generative inference of the VLM \cite{jouppi2017datacenter}. In the CCMA architecture, the TPU operates in a low-power \textit{Dark Silicon} state until the FPGA detects an anomaly and triggers a hardware interrupt, passing only the foveal tensor for deep scrutiny. This hardware isomorphism maximizes computational efficiency while statistically minimizing Thermal Design Power (TDP).
+	
+	\begin{thebibliography}{16}
+		
+		\bibitem{vaswani2017}
+		Vaswani, A., et al. (2017). \textit{Attention Is All You Need}. Advances in Neural Information Processing Systems.
+		
+		\bibitem{ebbinghaus1885}
+		Ebbinghaus, H. (1885). \textit{Memory: A Contribution to Experimental Psychology}. 
+
+        \bibitem{yan2024crag}
+		Yan, S., et al. (2024). \textit{Corrective Retrieval Augmented Generation}. arXiv preprint arXiv:2401.15884.
+		
+		\bibitem{packer2023memgpt}
+		Packer, C., et al. (2023). \textit{MemGPT: Towards LLMs as Operating Systems}. arXiv preprint arXiv:2310.08560.
+		
+		\bibitem{malkov2018hnsw}
+		Malkov, Y. A., \& Yashunin, D. A. (2018). \textit{Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs}. IEEE Transactions on Pattern Analysis and Machine Intelligence.
+		
+		\bibitem{cormack2009rrf}
+		Cormack, G. V., Clarke, C. L., \& Buettcher, S. (2009). \textit{Reciprocal Rank Fusion outperforms Condorcet and individual Rank Learning Methods}. SIGIR.
+		
+		\bibitem{microsoft2024graphrag}
+		Edge, D., et al. (2024). \textit{From Local to Global: A Graph RAG Approach to Query-Focused Summarization}. Microsoft Research.
+		
+		\bibitem{chen2024spatialvlm}
+		Chen, X., et al. (2024). \textit{SpatialVLM: Endowing Vision-Language Models with Spatial Reasoning Capabilities}. CVPR.
+		
+		\bibitem{wang2004ssim}
+		Wang, Z., et al. (2004). \textit{Image Quality Assessment: From Error Visibility to Structural Similarity}. IEEE Transactions on Image Processing.
+		
+		\bibitem{dosovitskiy2015flownet}
+		Dosovitskiy, A., et al. (2015). \textit{FlowNet: Learning Optical Flow with Convolutional Networks}. ICCV.
+		
+		\bibitem{mnih2014recurrent}
+		Mnih, V., et al. (2014). \textit{Recurrent Models of Visual Attention}. Advances in Neural Information Processing Systems.
+		
+		\bibitem{burt1983laplacian}
+		Burt, P., \& Adelson, E. (1983). \textit{The Laplacian Pyramid as a Compact Image Code}. IEEE Transactions on Communications.
+		
+		\bibitem{openclaw2025}
+		OpenClaw Architecture Team. (2025). \textit{OpenClaw: Agentic Frameworks and Volatility Control in Edge Nodes}. GitHub Repository.
+		
+		\bibitem{nurvitadhi2017fpga}
+		Nurvitadhi, E., et al. (2017). \textit{Can FPGAs beat GPUs in Accelerating Next-Generation Deep Neural Networks?}. FPGA.
+		
+		\bibitem{jouppi2017datacenter}
+		Jouppi, N., et al. (2017). \textit{In-Datacenter Performance Analysis of a Tensor Processing Unit}. ISCA.
+		
+		\bibitem{synth_temporal}
+		The Opinionated Geek. \textit{It's About Time: Temporal Weighting in LLM Chats}. Synth: the Journal of Synthetic Sentience, Medium.
+		
+	\end{thebibliography}
+	
+\end{document}
