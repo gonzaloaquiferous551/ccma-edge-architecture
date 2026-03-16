@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this research or the CCMA framework in your work, please cite it as follows."
+authors:
+  - family-names: "Jones"
+    given-names: "Dane Robert"
+    orcid: "https://orcid.org/0009-0003-8014-7298"
+title: "Synoptic Context Management: Graph-Augmented Bi-Temporal Memory and Semantic-Temporal Modulation in Edge LLMs"
+version: "5.1.0"
+date-released: 2026-03-15
+url: "https://github.com/zinthose/ccma-edge-architecture"
+keywords:
+  - edge-llm
+  - context-management
+  - directed-acyclic-graphs
+  - semantic-memory
+  - cognitive-persistence
+abstract: >-
+  A framework for lossless context compaction in resource-constrained edge environments.
+  Utilizes Semantic-Temporal Modulation and Max-Pooled Semantic Signatures to solve
+  transformer scaling bottlenecks.
