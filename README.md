@@ -1,53 +1,67 @@
 # CCMA: Conversational Context Management Algorithm
 
-> **Synoptic Context Management: Graph-Augmented Bi-Temporal Memory and Semantic-Temporal Modulation in Edge LLMs**
+> **Architecting Cognitive Persistence: Integrating CCMA with 768-Dimensional Hyperbolic Manifolds for Centroid-Preserving Memory**
 
 > **Patent Pending** - U.S. Provisional Application No. 64/006,354 (Filed: March 15, 2026)
 
-This repository contains the white paper and architectural specifications for the **Conversational Context Management Algorithm (CCMA)**. CCMA is a deterministic framework designed to solve the $\mathcal{O}(n^2)$ attention bottleneck in long-horizon edge LLM interactions by utilizing Directed Acyclic Graphs (DAGs) and Semantic-Temporal Modulation.
+This repository contains the white paper and architectural specifications for the **Conversational Context Management Algorithm (CCMA)**. CCMA is a deterministic framework designed to solve the $\mathcal{O}(n^2)$ attention bottleneck and catastrophic forgetting in long-horizon edge LLM interactions by bridging localized context caches with deeply hierarchical, hyperbolic lifelong memory.
 
-## 🧠 Architectural Philosophy
+## 🧠 Architectural Philosophy (The Universal Coding Manifesto)
 
-CCMA adheres to the **Functional Core / Imperative Shell** architecture:
+CCMA adheres strictly to a **Functional Core / Imperative Shell** architecture, enforcing a zero-trust environment:
 
-- **Functional Core:** Mathematical gating, Semantic Signatures, and Ebbinghaus-derived decay functions are implemented as pure, deterministic operations.
-- **Imperative Shell:** Manages volatile state, hardware interrupts for TPU/FPGA switching, and agentic escalation to cloud nodes (e.g., OpenClaw).
+* **Functional Core (Deterministic):** Silicon-enforced mathematical gating, semantic-temporal decay calculations, hyperbolic metric tracking, and Trust No One (TNO) circuit breakers are implemented as pure, immutable functions.
+
+* **Imperative Shell (Probabilistic):** Manages volatile generative state (the LLM/TPU), relying purely on the geometrically stable vectors fed to it by the Core. The LLM physically cannot hallucinate its own geometric memory coordinates.
 
 ## 🚀 Key Innovations
 
-- **Semantic-Temporal Modulator:** Corrects Ebbinghaus memory decay for asynchronous turns by calculating Effective Time ($\Delta t_{\text{eff}}$) based on cosine similarity.
-- **Max-Pooled Semantic Signatures:** Preserves semantic "peaks" during context compaction to prevent centroid collapse and loss of diagnostic nuance.
-- **Macro-to-Micro Spatial Decomposition:** A deductive approach to vision processing that triggers high-resolution "foveated" scrutiny only when semantic thresholds are met.
-- **Tri-Tiered Chrono-Synchronous Storage:** Scales memory from L1 Redis caches to immutable PostgreSQL/pgvector DAGs for decade-long persistence.
+* **The Poincaré Ball Paradigm:** Transitions lifelong memory from flat Euclidean space to a 768-dimensional hyperbolic manifold, allowing exponential graph embedding without structural distortion.
 
-## 🛠 Hardware Specification
+* **Colliding Weights & Centroid Collapse Mitigation:** A deterministic hardware trigger that detects semantic crowding ($\Phi_{\text{total}} > \tau_{\text{collapse}}$) and executes Tangent Space Max-Pooling to mathematically preserve distinct semantic peaks.
 
-The framework theorizes a **TPU/FPGA Hybrid SoC**:
+* **Biological Sleep Cycle Memory Consolidation:** Mathematically maps Wake (Euclidean L1), NREM (Cartesian pooling), and REM (Generative Replay/Hyperbolic Projection) phases for asynchronous memory stabilization.
 
-1. **FPGA:** Silicon-enforced deterministic execution of gating functions (VNSW, Laplacian Pyramids, SSIM).
-2. **TPU:** Probabilistic generative inference, maintained in a low-power "Dark Silicon" state until triggered by the FPGA.
+* **Topological Isomorphism (Gabriel's Horn):** Resolves the finite compute / infinite memory paradox by treating localized VRAM (Context Window) as the finite *volume* and the Hyperbolic Archival tier as the infinite *surface area*.
+
+* **TNO Circuit Breaker:** Neutralizes Adversarial REM-Forcing (Compute Exhaustion DoS attacks) by evaluating payloads using Topological Entropy Scoring ($H_{\text{topo}}$) before authorizing hardware interrupts.
+
+## 🛠 Silicon-Level Isomorphism (Hardware Spec)
+
+The framework theorizes an integrated **FPGA/TPU Hybrid System-on-Chip**:
+
+1. **FPGA (The Core):** Maintains geometric state monitoring, continuously calculating inverse hyperbolic cosines and collision densities in bounded clock cycles.
+
+2. **TPU (The Shell):** Handles generative inference and natural language processing, maintained in a low-power "Dark Silicon" state until invoked by the FPGA's validated memory payloads.
 
 ## 📄 Abstract
 
-The deployment of long-horizon conversational agents in resource-constrained edge environments is fundamentally bottlenecked by the quadratic scaling of transformer self-attention. Traditional FIFO truncation results in catastrophic forgetting. CCMA proposes a lossless compaction framework utilizing DAGs and Max-Pooled Semantic Signatures. We mathematically formulate a Semantic-Temporal Modulator that corrects memory decay for asynchronous interactions, alongside a Novelty Penalty to mitigate contextual poisoning.
+The deployment of long-horizon conversational agents in resource-constrained computing environments is bottlenecked by the quadratic scaling of transformer self-attention and the catastrophic forgetting inherent to standard First-In-First-Out (FIFO) caches. This paper integrates the Conversational Context Management Algorithm (CCMA) with a 768-dimensional Poincaré ball model of hyperbolic geometry to establish a structurally flawless bridge between high-speed localized caches and deeply hierarchical lifelong memory. Operating on a strict Functional Core / Imperative Shell architecture, we define a Semantic-Temporal Modulator to correct Ebbinghaus decay, and mathematically formalize the threat of "Centroid Collapse" in standard Euclidean vector aggregation. By synthesizing a deterministic "Colliding Weights" trigger, Tangent Space Max-Pooling sequences, Riemannian Repulsion, and TNO Circuit Breakers executed on FPGA/TPU hybrid silicon, this framework ensures that high-entropy semantic peaks are preserved in perpetuity.
 
 ## 📦 PDF Availability
 
-The paper PDF is produced automatically via GitHub Actions:
+The full academic whitepaper PDF is produced automatically via GitHub Actions:
 
-- **Workflow Artifact:** Generated on each successful compile run.
-- **GitHub Pages:** Publishes a stable `latest.pdf` on the default branch.
-- **GitHub Releases:** Tagged versions (for example, `v1.0.0`) include the PDF as a downloadable release asset.
+* **Workflow Artifact:** Generated on each successful compile run of the `.tex` source.
+
+* **GitHub Pages:** Publishes a stable `latest.pdf` on the default trunk branch.
+
+* **GitHub Releases:** Tagged SemVer releases (e.g., `v1.2.0`) include the PDF as a downloadable release asset.
 
 ## 🔗 Repository Structure
 
-- `CCMA - Conversational Context Management Algorithm.tex`: Source manuscript (LuaLaTeX).
-- `.github/workflows/render-tex-to-pdf.yml`: Automated PDF build and publication workflow.
-- `README.md`: Project overview and publication details.
-- `LICENSE`: Apache License 2.0.
+* `CCMA_Hyperbolic_Memory.tex`: Source manuscript (LuaLaTeX).
+
+* `.github/workflows/render-tex-to-pdf.yml`: Automated PDF build and publication workflow.
+
+* `README.md`: Project overview and publication details.
+
+* `LICENSE`: Apache License 2.0.
 
 **Author:** Dane Robert Jones
 
-_Software Engineering Student, Western Governors University_  
-_Technical SME, Essintial_  
+*Software Engineering Student, Western Governors University*
+
+*Technical SME, Essintial*
+
 [danerjones@gmail.com](mailto:danerjones@gmail.com) | [ORCID 0009-0003-8014-7298](https://orcid.org/0009-0003-8014-7298)
